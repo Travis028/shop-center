@@ -67,8 +67,9 @@ header {
 
 .product-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(autofit, minmax(280px 1fr));
     gap: 30px;
+
 }
 
 .product-box .img-box{
@@ -78,10 +79,34 @@ header {
 }
 
 .img-box img{
-    width: 100%;
+    width: 50%;
     transition: 0.5s;
 }
 
 .img-box:hover img{
     transform: scale(1.1);
+}
+.product-box .product-title {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.product-box .price-and-cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-and-cart .price{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.price-and-cart .add-cart{
+    padding: 10px;
+    background: #e35f26;
+    border-radius: 6px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
 }
