@@ -7,7 +7,7 @@ cartClose.addEventListener("click",() => cart.classList.remove("active"));
 const addCartButtons = document.querySelectorAll(".add-cart");
 addCartButtons.forEach(button => {
     button.addEventListener("click", event => {
-        const productBox = event.target.closet(".product-box");
+        const productBox = event.target.closest(".product-box");
         addToCart(productBox);
     });
 });
@@ -18,19 +18,29 @@ const addToCart = productBox => {
     const productTitle = productBox.querySelector(".product-title").textContent;
     const productPrice = productBox.querySelector(".price").textContent;
 
+    const cartItems = cartContent.querySelectorAll(".cart-product-title");
+    for (let item of cartItems) {
+        if (item.textContent === productTitle){
+            alert ("This item is already in the cart");
+            return; 
+        }
+    }
+
     const cartBox = document.createElement("div");
     cartBox.classList.add("cart-box");
     cartBox.innerHTML = `
-    <img src="./Product Images/images/product1.jpg" class="cart-img">
+    <img src="${productImgSrc}" class="cart-img">
         <div class="cart-detail">
-            <h2 class="cart-product-title">${prouductTitle}</h2>
+            <h2 class="cart-product-title">${productTitle}</h2>
             <span class="cart-price">${productPrice}</span>
             <div class="cart-quantity">
                 <button id="decrement">-</button>
                 <span class="number">1</span>
-                <button id="decrement">+</button>
+                <button id="increment">+</button>
             </div>
         </div>
         <i class="ri-delete-bin-line cart-remove"></i>
         `;
+
+        cartContent.appendChild(cartBox);
 };
