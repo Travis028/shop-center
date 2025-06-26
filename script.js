@@ -43,4 +43,8 @@ const addToCart = productBox => {
         `;
 
         cartContent.appendChild(cartBox);
+
+        cartBox.querySelector(".cart-remove").addEventListener("click",() =>{
+            cartBox.remove();
+        });
 };
