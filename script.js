@@ -75,7 +75,7 @@ const addToCart = productBox => {
 
 const updateTotalPrice = () => {
     const totalPriceElement = document.querySelector(".total-price");
-     const cartBoxes= cartContent.querySelector(".cart-box");
+     const cartBoxes= cartContent.querySelectorAll(".cart-box");
      let total = 0;
      cartBoxes.forEach(cartBox => {
          const priceElement= cartBox.querySelector(".cart-price");
@@ -85,4 +85,17 @@ const updateTotalPrice = () => {
           total += price *quantity;
      });
      totalPriceElement.textContent = `$${total}`;
+};
+
+let cartItemCount = 0;
+const updateCartCount = change => {
+    const cartItemCountBadge = document.querySelector(".cart-item-count");
+    cartItemCount += change;
+    if (cartItemCount > 0) {
+        cartItemCountBadge.style.visibility = "visible";
+        cartItemCountBadge.textContent = cartItemCount;
+    } else {
+        cartItemCountBadge.style.visibility = "hidden";
+        cartItemCountBadge.textContent = "";
+    }
 };
