@@ -1,3 +1,32 @@
+fetch("http://localhost:3000/products")
+  .then(response => response.json())
+  .then(products => {
+    products.forEach(product => renderProduct(product));
+    attachCartEvents(); 
+  })
+  .catch(error => console.error("Failed to fetch products:", error));
+
+
+  function renderProduct(product) {
+  const productContainer = document.querySelector(".product-content");
+
+  const productBox = document.createElement("div");
+  productBox.classList.add("product-box");
+
+  productBox.innerHTML = `
+    <div class="img-box">
+      <img src="${product.image}" />
+    </div>
+    <h2 class="product-title">${product.name}</h2>
+    <div class="price-and-cart">
+      <span class="price">$${product.price}</span>
+      <i class="ri-shopping-bag-line add-cart"></i>
+    </div>
+  `;
+
+  productContainer.appendChild(productBox);
+}
+
 const cartIcon = document.querySelector("#cart-icon");
 const cart = document.querySelector(".cart");
 const cartClose = document.querySelector("#cart-close");

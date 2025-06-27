@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Casual Black Polo",
+      "price": 100,
+      "image": "./Product Images/images/product1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Waterproof Hoodie",
+      "price": 50,
+      "image": "./Product Images/images/product2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Blue SweatShirt",
+      "price": 20,
+      "image": "./Product Images/images/product3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Hooded Urban Jacket",
+      "price": 125,
+      "image": "./Product Images/images/product4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Cold Weather Jacket",
+      "price": 147,
+      "image": "./Product Images/images/product5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Sporty Jacket",
+      "price": 80,
+      "image": "./Product Images/images/product6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Olive Heritage Hoodie",
+      "price": 62,
+      "image": "./Product Images/images/product7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Bright Horizon Polo",
+      "price": 70,
+      "image": "./Product Images/images/product8.jpg"
+    }
+  ]
+}
