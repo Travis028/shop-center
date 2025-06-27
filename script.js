@@ -103,3 +103,21 @@ const updateCartCount = change => {
         cartItemCountBadge.textContent = "";
     }
 };
+
+const buyNowButton = document.querySelector("");
+buyNowButton.addEventListener( "click", () => {
+    const cartBoxes = cartContent.querySelectorAll("");
+    if (cartBoxes.length === 0) {
+        alert("Your cart is empty. Please add items to your cart before buying");
+        return;
+    }
+
+    cartBoxes.forEach(cartBox => cartBox.remove());
+
+    cartItemCount = 0;
+    updateCartCount(0);
+
+    updateTotalPrice();
+
+    alert("Thank you for your purchase!");    
+});
