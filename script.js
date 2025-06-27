@@ -47,6 +47,8 @@ const addToCart = productBox => {
         cartBox.querySelector(".cart-remove").addEventListener("click",() =>{
             cartBox.remove();
 
+            updateCartCount(-1);
+
             updateTotalPrice();
         });
 
@@ -69,6 +71,8 @@ const addToCart = productBox => {
 
             updateTotalPrice();
         });
+
+        updateCartCount(1);
 
         updateTotalPrice();
 };
