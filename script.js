@@ -134,7 +134,12 @@ const updateCartCount = change => {
 };
 
 const buyNowButton = document.querySelector(".btn-buy");
-buyNowButton.addEventListener( "click", () => {
+const mpesaButton = document.querySelector(".btn-mpesa");
+
+buyNowButton.addEventListener("click", handlePurchase);
+mpesaButton.addEventListener("click", handleMpesaPayment);
+
+function handlePurchase() {
     const cartBoxes = cartContent.querySelectorAll(".cart-box");
     if (cartBoxes.length === 0) {
         alert("Your cart is empty. Please add items to your cart before buying");
@@ -142,11 +147,26 @@ buyNowButton.addEventListener( "click", () => {
     }
 
     cartBoxes.forEach(cartBox => cartBox.remove());
-
     cartItemCount = 0;
     updateCartCount(0);
-
     updateTotalPrice();
+    
+    alert("Thank you for your purchase! Please check your order status with our customer service.");
+}
 
-    alert("Thank you for your purchase!");    
-});
+function handleMpesaPayment() {
+    const cartBoxes = cartContent.querySelectorAll(".cart-box");
+    const total = document.querySelector(".total-price").textContent.replace("$", "");
+
+    if (cartBoxes.length === 0) {
+        alert("Your cart is empty. Please add items to your cart before buying");
+        return;
+    }
+
+    alert(`To complete your purchase via M-Pesa:
+    1. Send KES ${total} to phone number: 0702823087
+    2. Use reference: MEN
+    3. After payment, please contact our customer service to confirm your order
+    
+    Thank you for choosing Men Clothes Collection!`);
+}
